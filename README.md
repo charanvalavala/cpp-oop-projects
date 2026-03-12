@@ -4,7 +4,7 @@ This repository contains a collection of modular C++ systems built to demonstrat
 
 ## 📂 Projects Included
 
-## 1. Bank Account Management System(./01-Bank-Account-System)
+### 1. [Bank Account Management System](./01-Bank-Account-System)
 A C++ console app with a base Account class and SavingsAccount/CurrentAccount subclasses.
 Features:
 - Deposit, withdraw, interest calculation
