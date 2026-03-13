@@ -1,10 +1,3 @@
-/**
- * @file main.cpp
- * @brief Polymorphic Bank Account Management System
- * Demonstrates OOP principles (Inheritance, Polymorphism, Encapsulation) 
- * and File I/O for data persistence.
- */
-
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -12,7 +5,7 @@
 
 using namespace std;
 
-// --- BASE CLASS ---
+// BASE CLASS
 class Account {
 protected:
     string account_type; // Added to distinguish accounts in the text file
@@ -26,7 +19,6 @@ public:
 
     virtual ~Account() {} // Virtual destructor for memory safety
 
-    // Virtual helper for polymorphic printing
     virtual void print(ostream& os) const {
         os << "[" << account_type << "] Account No: " << acc_no 
            << " | Name: " << name << " | Balance: Rs " << balance;
@@ -37,20 +29,17 @@ public:
         return os;
     }
 
-    // --- FILE I/O (Serialization) ---
-    // Saves the type first, so we know how to rebuild the object later
     virtual void saveToFile(ofstream& file) const {
         file << account_type << "\n" << acc_no << "\n" << name << "\n" << balance << "\n";
         saveExtraData(file); 
     }
 
-    // Pure virtual hooks forcing child classes to manage their specific data
     virtual void saveExtraData(ofstream& file) const = 0;
     virtual void deposit(float amount) = 0;
     virtual void withdraw(float amount) = 0;
 };
 
-// --- DERIVED CLASS: SAVINGS ---
+//DERIVED CLASS: SAVINGS
 class SavingsAccount : public Account {
 private:
     float interest_rate;
@@ -75,7 +64,7 @@ public:
     }
 };
 
-// --- DERIVED CLASS: CURRENT ---
+// DERIVED CLASS: CURRENT
 class CurrentAccount : public Account {
 private:
     float overdraft_limit;
@@ -100,24 +89,23 @@ public:
     }
 };
 
-// --- MAIN EXECUTION ---
+//MAIN EXECUTION
 int main() {
-    // 1. Create accounts
+    // Create accounts
     SavingsAccount sa(101, "Charan", 5000, 0.05);
     CurrentAccount ca(102, "Sahiti", 2000, 10000);
 
     cout << "--- Initial Accounts ---\n";
     cout << sa << "\n" << ca << "\n\n";
 
-    // 2. Save multiple accounts to a single database file
-    cout << "Saving to bank_database.txt...\n";
+    // 2. Save multiple accounts to a single file
     ofstream outFile("bank_database.txt");
     if (outFile.is_open()) {
         sa.saveToFile(outFile);
         ca.saveToFile(outFile);
         outFile.close();
-        cout << "Save successful!\n";
     }
 
     return 0;
+
 }
