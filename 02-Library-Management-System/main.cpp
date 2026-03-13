@@ -189,7 +189,6 @@ public:
                 file << it->getType() << " | " << it->getId() << " | " << it->getTitle()
                      << " | " << it->getAuthor() << " | " << (it->isIssued() ? "Issued" : "Available") << "\n";
             file.close();
-            cout << "Status saved to " << filename << endl;
         }
     }
 };
