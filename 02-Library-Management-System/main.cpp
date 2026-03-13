@@ -31,9 +31,18 @@ public:
     bool isIssued() const { return is_issued; }
     const vector<Member *>& getWaitlist() const { return waitlist; }
 
-    void setIssued(bool status) { is_issued = status; }
-    void addWaitlist(Member *member) { waitlist.push_back(member); }
-    void clearWaitlist() { waitlist.clear(); }
+    void setIssued(bool status) 
+    { 
+        is_issued = status; 
+    }
+    void addWaitlist(Member *member) 
+    { 
+        waitlist.push_back(member);
+    }
+    void clearWaitlist()
+    { 
+        waitlist.clear(); 
+    }
 };
 
 // Derived Classes 
