@@ -98,7 +98,7 @@ int main() {
     cout << "--- Initial Accounts ---\n";
     cout << sa << "\n" << ca << "\n\n";
 
-    // 2. Save multiple accounts to a single file
+    // Save multiple accounts to a single file
     ofstream outFile("bank_database.txt");
     if (outFile.is_open()) {
         sa.saveToFile(outFile);
@@ -109,3 +109,4 @@ int main() {
     return 0;
 
 }
+
