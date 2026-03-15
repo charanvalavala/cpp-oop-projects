@@ -19,8 +19,14 @@ Features:
 - Observer pattern : waitlisted members get notified when an item is returned
 - Inventory display and status saved to a `.txt` file
 
-### 3. Shape Drawing System (Coming Soon)
+### 3. [Shape Drawing System](./03-Shape-Factory)
+A C++ console app where shapes are created from string input using a factory and drawn with their area and perimeter.
+
+Features:
+- Abstract `Shape` base class with `Circle`, `Rectangle`, and `Triangle` subclasses
+- Factory pattern : creates the right shape object from a string input
+- Handles case insensitive input and invalid triangle sides
 
 ## 🛠️ Tech Stack
 * **Language:** C++11 / C++14
-* **Core Libraries:** `<iostream>`, `<fstream>`, `<string>`, `<vector>`, `<algorithm>`
+* **Core Libraries:** `<iostream>`, `<fstream>`, `<cmath>`, `<string>`, `<vector>`, `<algorithm>`
